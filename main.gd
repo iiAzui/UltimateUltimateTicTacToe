@@ -13,6 +13,11 @@ var clicked = []
 
 var turn = 0
 
+var turnxlow = -999
+var turnxhigh = 999
+
+var turnylow = 999
+var turnyhigh = -999
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,15 +25,52 @@ func _ready() -> void:
 		poss.append(Vector2(int(get_node("Node2D3/Node2D2").get_child(count).position.x),int(get_node("Node2D3/Node2D2").get_child(count).position.y)))
 		count += 1
 	#print(poss)
+	print(poss)
 	count = 0
 	
-
+func turnplace(m, s):
+	#bigs: 
+	# 1 = (-305, -300) - (-215, -210)
+	# 2 = (-200, -300) - (45, -55)
+	# 3 = (55, -145) - (150, -55)
+	# 4 = (-145, -45) - (-60, 45)
+	# 5 = (-45, -45) - (45, 45)
+	# 6 = (60, -45) - (145, 45)
+	# 7 = (-145, 60) - (-60, 150)
+	# 8 = (-45, 60) - (45, 150)
+	# 9 = (60, 60) - (150, 150)
+	
+	#mids:
+	# 1 = (start, start) - (start +25, start + 25)
+	# 2 = (start +30, start) - (start +55, start +55)
+	
+	match m:
+		1:
+			match s:
+				1:
+					pass
+				2:
+					pass
+				3:
+					pass
+				4:
+					pass
+				5:
+					pass
+				6:
+					pass
+				7:
+					pass
+				8:
+					pass
+				9:
+					pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			#print("Mouse Click at: ", event.global_position, str(get_node("Node2D3").get_local_mouse_position() ))
-			
+			print("Mouse at: " + str(get_node("Node2D3").get_local_mouse_position()))
 			#controls x
 			count = -5
 			while count < 5:
